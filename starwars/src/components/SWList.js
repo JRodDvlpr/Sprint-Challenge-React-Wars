@@ -1,24 +1,33 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import SwCard from "../components/SWCard"
+import styled from "styled-components";
 
+const Card = styled.div`
+display: flex;
+flex-flow: column nowrap;
+justify-content: center;
+background-color: white;
+max-width: 30%;
+width: 30%;
+text-align: center;
+`;
 
 export default function SWcards () {
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        axios
-          .get(`https://swapi.co/api/people/`)
-          .then(res => {
-            const swChar = res.data.results;
-            console.log(swChar);
-            setCards(swChar);
+        axios.get(`https://swapi.co/api/people/`)
+          .then(arr => {
+            const SWChar = arr.data.results;
+            console.log(SWChar);
+            setCards(SWChar);
           })
           .catch(err => console.log(`There error is: ${err}`));
           },[]);   
 
       return (
-        <div>
+        <Card>
         {cards.map(card => {
           return (
             <SwCard
@@ -30,6 +39,6 @@ export default function SWcards () {
             />
           );
         })}
-        </div>
+        </Card>
       );
 }

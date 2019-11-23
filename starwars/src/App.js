@@ -18,11 +18,11 @@ function App() {
 
   
   return (
-    <div className="App">
-      <header>React Wars</header>
+    <Container className="App">
+      <Header>React Wars</Header>
       <SWList />
 
-    </div>
+    </Container>
   );
 }
 
