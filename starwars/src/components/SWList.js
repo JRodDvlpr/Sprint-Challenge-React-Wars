@@ -5,11 +5,11 @@ import styled from "styled-components";
 
 const Card = styled.div`
 display: flex;
-flex-flow: column nowrap;
+flex-flow: column wrap;
 justify-content: center;
 background-color: white;
-max-width: 30%;
-width: 30%;
+border: 1px dashed #000000;
+max-width: 80%;
 text-align: center;
 `;
 
@@ -32,8 +32,11 @@ export default function SWcards () {
           return (
             <SwCard
             key={card.name}
+            birth={card.birth_year}
+            img={card.url}
             sex={card.gender}
             name={card.name}
+            hair={card.hair_color}
             height={card.height}
             eye={card.eye_color}
             />
